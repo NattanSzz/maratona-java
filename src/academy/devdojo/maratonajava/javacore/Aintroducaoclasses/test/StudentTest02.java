@@ -1,10 +1,10 @@
 package academy.devdojo.maratonajava.javacore.Aintroducaoclasses.test;
 
-import academy.devdojo.maratonajava.javacore.Aintroducaoclasses.dominio.Estudante;
+import academy.devdojo.maratonajava.javacore.Aintroducaoclasses.dominio.Student;
 
-public class EstudanteTes01 {
+public class StudentTest02 {
     public static void main(String[] args) {
-        Estudante student = new Estudante();
+        Student student = new Student();
         student.name = "Nattan";
         student.age = 15;
         student.gender = 'M';
