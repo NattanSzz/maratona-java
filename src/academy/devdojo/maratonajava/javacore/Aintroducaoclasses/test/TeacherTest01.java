@@ -8,5 +8,7 @@ public class TeacherTest01 {
         teacher.name = "Vanildo";
         teacher.age = 89;
         teacher.gender = 'M';
+
+        System.out.println("Nome: " + teacher.name + ", Idade: " + teacher.age + ", Genero: " + (teacher.gender == 'M' ? "Masculino" : "Feminino"));
     }
 }
