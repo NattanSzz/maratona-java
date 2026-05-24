@@ -21,6 +21,14 @@ public class Calculator {
         System.out.println(result);
     }
 
+    public void sumVarArgs(int... numbers) {
+        int result = 0;
+        for (int x : numbers) {
+            result += x;
+        }
+        System.out.println(result);
+    }
+
     public double divideTwoNumber(double num1, double num2) {
         if(num2 == 0) {
             return 0;
