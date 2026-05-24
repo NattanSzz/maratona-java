@@ -5,12 +5,14 @@ public class Anime {
     private String type;
     private int episodes;
     private String gender;
+    private String studio;
 
-    public Anime(String name, String type, int episodes, String gender) {
+    public Anime(String name, String type, int episodes, String gender, String studeio) {
         this.name = name;
         this.episodes = episodes;
         this.gender = gender;
         this.type = type;
+        this.studio = studeio;
     }
 
     public Anime() {
@@ -33,6 +35,7 @@ public class Anime {
         System.out.println(this.type);
         System.out.println(this.episodes);
         System.out.println(this.gender);
+        System.out.println(this.studio);
     }
 
     public void setType(String type) {
