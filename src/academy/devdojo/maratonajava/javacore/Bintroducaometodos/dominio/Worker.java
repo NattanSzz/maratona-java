@@ -12,18 +12,22 @@ public class Worker {
         System.out.println("Nome: " + this.name);
         System.out.println("Idade: " + this.age);
         System.out.print("Salários: ");
-        for (double w : this.wage) {
-            System.out.print(" - R$ " + w);
+        if(this.wage != null) {
+            for (double w : this.wage) {
+                System.out.print(" - R$ " + w);
+            }
         }
         System.out.printf("%n---------------------------------------%n");
     }
 
     public void wageAverage() {
-        double sum = 0;
-        for(double v : this.wage) {
-            sum += v;
-        };
-        double average = sum / this.wage.length;
+        double average = 0;
+        if(this.wage != null) {
+            for(double v : this.wage) {
+                average += v;
+            }
+            average /= this.wage.length;
+        }
         System.out.println("A média dos salarios de " + this.name + " é R$ " + average);
     }
 }
