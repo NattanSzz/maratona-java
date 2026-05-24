@@ -6,6 +6,10 @@ public class Anime {
     private int episodes;
     private String gender;
 
+    public Anime() {
+        
+    }
+
     public void init(String name, String type, int episodes) {
         this.name = name;
         this.type = type;
