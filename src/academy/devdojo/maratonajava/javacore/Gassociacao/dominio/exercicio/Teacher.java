@@ -10,6 +10,27 @@ public class Teacher {
         this.specialty = specialty;
     }
 
+    public void print() {
+        System.out.println("=======================");
+        System.out.println("Professor");
+        System.out.println("-----------------------");
+        System.out.println("Nome:");
+        System.out.println(this.name);
+
+        System.out.println("\nEspecialidade: ");
+        System.out.println(this.specialty);
+
+        System.out.println("\nSeminarios:");
+        if(this.seminars != null) {
+            for(Seminar seminar : this.seminars) {
+                System.out.println(seminar.getTitle());
+            }
+        }else{
+            System.out.println("Nenhum");
+        }
+        System.out.println("=======================");
+    }
+
     public String getName() {
         return name;
     }

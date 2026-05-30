@@ -10,26 +10,47 @@ public class Student {
         this.age = age;
     }
 
+    public void print() {
+        System.out.println("=======================");
+        System.out.println("Aluno");
+        System.out.println("-----------------------");
+
+        System.out.println("Nome:");
+        System.out.println(this.name);
+
+        System.out.println("\nIdade:");
+        System.out.println(this.age);
+
+        System.out.println("\nSeminario:");
+        if(this.seminar != null) {
+            System.out.println(this.seminar.getTitle());
+        }else{
+            System.out.println("Nenhum");
+        }
+
+        System.out.println("=======================");
+    }
+
     public String getName() {
         return name;
     }
-    
+
     public void setName(String name) {
         this.name = name;
     }
-    
+
     public int getAge() {
         return age;
     }
-    
+
     public void setAge(int age) {
         this.age = age;
     }
-    
+
     public Seminar getSeminar() {
         return seminar;
     }
-    
+
     public void setSeminar(Seminar seminar) {
         this.seminar = seminar;
     }
