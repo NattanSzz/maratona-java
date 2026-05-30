@@ -1,6 +1,6 @@
 package academy.devdojo.maratonajava.javacore.Fmodificadorestatico.test;
 
-//import academy.devdojo.maratonajava.javacore.Fmodificadorestatico.domain.Movie;
+//import academy.devdojo.maratonajava.javacore.Fmodificadorestatico.dominio.Movie;
 
 public class MovieTest01 {
     public static void main(String[] args) {
