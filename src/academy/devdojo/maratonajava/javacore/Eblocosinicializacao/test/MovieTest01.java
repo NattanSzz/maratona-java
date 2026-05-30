@@ -1,6 +1,6 @@
 package academy.devdojo.maratonajava.javacore.Eblocosinicializacao.test;
 
-import academy.devdojo.maratonajava.javacore.Eblocosinicializacao.domain.Movie;
+import academy.devdojo.maratonajava.javacore.Eblocosinicializacao.dominio.Movie;
 
 public class MovieTest01 {
     public static void main(String[] args) {
