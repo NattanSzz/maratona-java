@@ -3,6 +3,10 @@ package academy.devdojo.maratonajava.javacore.Hheranca.dominio;
 public class Worker extends Person {
     private double wage;
 
+    public Worker(String name) {
+        super(name);
+    }
+
     public void print() {
         super.print();
         System.out.println("Salario: R$ " + this.wage);

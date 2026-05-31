@@ -10,14 +10,12 @@ public class HerancaTest01 {
         address.setStreet("Xique-Xique Bahia");
         address.setCep("012345-209");
 
-        Person person = new Person();
-        person.setName("Lord");
+        Person person = new Person("Lord");
         person.setCpf("1234567");
         person.setAddress(address);
         person.print();
 
-        Worker worker = new Worker();
-        worker.setName("Bruninho Mars");
+        Worker worker = new Worker("Bruninho Mars");
         worker.setCpf("7654321");
         worker.setAddress(address);
         worker.setWage(1450);

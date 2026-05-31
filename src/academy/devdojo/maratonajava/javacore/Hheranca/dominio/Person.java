@@ -5,11 +5,9 @@ public class Person {
     protected String cpf;
     protected Address address;
 
-    // public Person(String name, String cpf, Address address) {
-    //     this.name = name;
-    //     this.cpf = cpf;
-    //     this.address = address;
-    // }
+    public Person(String name) {
+        this.name = name;
+    }
 
     public void print() {
         System.out.println("Pessoa");
