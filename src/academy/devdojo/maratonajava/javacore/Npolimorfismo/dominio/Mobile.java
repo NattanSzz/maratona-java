@@ -2,6 +2,7 @@ package academy.devdojo.maratonajava.javacore.Npolimorfismo.dominio;
 
 public class Mobile extends Product {
     public static final double TAX = 0.06;
+    public String storage;
 
     public Mobile(String name, double value) {
         super(name, value);
@@ -13,4 +14,13 @@ public class Mobile extends Product {
         return this.value * TAX;
     }
 
+    public String getStorage() {
+        return storage;
+    }
+
+    public void setStorage(String storage) {
+        this.storage = storage;
+    }
+
+    
 }
