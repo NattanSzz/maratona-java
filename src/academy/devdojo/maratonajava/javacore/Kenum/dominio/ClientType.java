@@ -12,6 +12,15 @@ public enum ClientType {
         this.NAME = name;
     }
 
+    public static ClientType typeByName(String name) {
+        for(ClientType type : values()) {
+            if(type.getName().equals(name)) {
+                return type;
+            }
+        }
+        return null;
+    }
+
     public int getValue() {
         return VALUE;
     }

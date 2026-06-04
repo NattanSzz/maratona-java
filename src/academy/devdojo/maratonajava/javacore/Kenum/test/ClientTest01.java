@@ -12,5 +12,6 @@ public class ClientTest01 {
         System.out.println(client2);
         System.out.println("-------------------------------------------");
         System.out.println(PaymentType.CREDITO.calcDiscout(100));
+        System.out.println(ClientType.typeByName("Pessoa Física"));
     }
 }
