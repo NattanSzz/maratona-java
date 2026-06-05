@@ -13,6 +13,7 @@ public class ProductTest03 {
         mobile.setStorage("64MB");
 
         CalcTax.calcTax(mobile);
+        CalcTax.calcTax(product);
 
     }
 }
