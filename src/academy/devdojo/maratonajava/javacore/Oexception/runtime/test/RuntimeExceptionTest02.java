@@ -9,7 +9,7 @@ public class RuntimeExceptionTest02 {
         }
     }
 
-    private static int 'division(int a , int b) throws IllegalArgumentException {
+    private static int division(int a , int b) throws IllegalArgumentException {
         if(b == 0) {
             throw new RuntimeException("Argumento ilegal, não pode ser 0");
         }
