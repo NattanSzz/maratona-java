@@ -19,10 +19,8 @@ public class RuntimeExceptionTest04 {
 
         try{
             maybeThrowException();
-        }catch(SQLException e) {
-
-        }catch(FileNotFoundException e) {
-            
+        }catch(SQLException | FileNotFoundException e) {
+            e.printStackTrace();
         }
     }
 
