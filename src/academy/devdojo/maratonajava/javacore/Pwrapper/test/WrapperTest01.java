@@ -23,7 +23,7 @@ public class WrapperTest01 {
         System.out.println(intW);
 
         int i = byteW; // Unboxing
-        
+        System.out.println(i);
         // Integer intW2 = Integer.parseInt("1");
         // boolean isTrue = Boolean.parseBoolean("TruE");
 
