@@ -7,5 +7,7 @@ public class SobrescritaExceptionTest01 {
     public static void main(String[] args) {
         Person person = new Person();
         Worker worker = new Worker();
+        System.err.println(worker);
+        System.out.println(person);
     }
 }
