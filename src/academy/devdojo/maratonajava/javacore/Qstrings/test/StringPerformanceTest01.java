@@ -1,6 +1,6 @@
 package academy.devdojo.maratonajava.javacore.Qstrings.test;
 
-public class StringPerformanceTest {
+public class StringPerformanceTest01 {
     public static void main(String[] args) {
         long init = System.currentTimeMillis();
         concatString(10_000);
@@ -23,6 +23,7 @@ public class StringPerformanceTest {
         for(int i = 0; i < lenght; i++){
             text += i;
         }
+        System.out.println(text);
     }
 
     public static void concatStringBuilder(int lenght) {
@@ -30,6 +31,7 @@ public class StringPerformanceTest {
         for(int i = 0; i < lenght; i++){
             text.append(i);
         }
+        
     }
 
     public static void concatStringBuffer(int lenght) {
