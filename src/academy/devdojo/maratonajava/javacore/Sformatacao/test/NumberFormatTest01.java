@@ -1,6 +1,7 @@
 package academy.devdojo.maratonajava.javacore.Sformatacao.test;
 
 import java.text.NumberFormat;
+import java.text.ParseException;
 import java.util.Locale;
 
 public class NumberFormatTest01 {
@@ -20,6 +21,13 @@ public class NumberFormatTest01 {
 
         for (NumberFormat n : nf) {
             System.out.println(n.format(value));
+        }
+
+        String valueString = "10_000.2130";
+        try{
+            System.out.println(nf[0].parse(valueString));
+        }catch(ParseException e) {
+            e.printStackTrace();
         }
         
     }
