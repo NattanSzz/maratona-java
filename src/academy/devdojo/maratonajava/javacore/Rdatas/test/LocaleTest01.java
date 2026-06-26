@@ -8,11 +8,11 @@ public class LocaleTest01 {
     public static void main(String[] args) {
         Calendar calendar = Calendar.getInstance();
 
-        Locale localeItaly = new Locale("it", "IT");
-        Locale localeCH = new Locale("it", "CH");
-        Locale localeIndia = new Locale("hi", "IN");
-        Locale localeJapao = new Locale("ja", "JP");
-        Locale localeHolanda = new Locale("nl", "NL");
+        Locale localeItaly = Locale.of("it", "IT");
+        Locale localeCH = Locale.of("it", "CH");
+        Locale localeIndia = Locale.of("hi", "IN");
+        Locale localeJapao = Locale.of("ja", "JP");
+        Locale localeHolanda = Locale.of("nl", "NL");
 
         DateFormat df1 = DateFormat.getDateInstance(DateFormat.FULL, localeItaly);
         DateFormat df2 = DateFormat.getDateInstance(DateFormat.FULL, localeCH);
