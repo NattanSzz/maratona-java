@@ -11,7 +11,7 @@ public class NumberFormatTest01 {
         Locale localeIT = Locale.ITALIAN;
         NumberFormat[] nf = new NumberFormat[4];
 
-        nf[0] = NumberFormat.getInstance();
+        nf[0] = NumberFormat.getInstance(localeDefault);
         nf[1] = NumberFormat.getInstance(localeJP);
         nf[2] = NumberFormat.getInstance(localePT);
         nf[3] = NumberFormat.getInstance(localeIT);
