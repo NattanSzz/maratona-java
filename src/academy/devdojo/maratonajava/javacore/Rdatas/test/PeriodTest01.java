@@ -1,6 +1,7 @@
 package academy.devdojo.maratonajava.javacore.Rdatas.test;
 
 import java.time.Period;
+import java.time.temporal.ChronoUnit;
 import java.time.LocalDate;
 
 public class PeriodTest01 {
@@ -15,5 +16,6 @@ public class PeriodTest01 {
         System.out.println(p2);
         System.out.println(p3);
         System.out.println(p4);
+        System.out.println(now.until(now.plusDays(p3.getDays()), ChronoUnit.YEARS));
     }
 }
