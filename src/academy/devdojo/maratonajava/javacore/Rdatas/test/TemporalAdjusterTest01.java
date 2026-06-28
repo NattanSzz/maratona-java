@@ -28,6 +28,7 @@ class GetNextBusinessDay implements TemporalAdjuster {
             case THURSDAY: addDays = 4; break;
             case FRIDAY: addDays = 3; break;
             case SATURDAY: addDays = 2; break;
+            default: break;
         }
         return temporal.plus(addDays, ChronoUnit.DAYS);
     }
