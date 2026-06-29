@@ -11,13 +11,16 @@ public class PathTest02 {
         Path folderPath = Paths.get("folder");
         if(Files.notExists(folderPath)){
             Path folderDir = Files.createDirectory(folderPath);
+            System.out.println(folderDir);
         }
         Path subFolderPath = Paths.get("folder/subfolder/subsubfolder");
 
         Path folderDir = Files.createDirectories(subFolderPath);
+        System.out.println(folderDir);
         Path filePath = Paths.get(subFolderPath.toString(), "file.txt");
         if(Files.notExists(filePath)){
             Path filePathCreated = Files.createFile(filePath);
+            System.out.println(filePathCreated);
         }
 
         Path source = filePath;
