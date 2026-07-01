@@ -36,8 +36,7 @@ public class Manga implements Comparable<Manga> {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         Manga other = (Manga) obj;
-        if(Double.compare(value, other.value) != 0) return false;
-        return Double.compare(other.value, value) == 0 && id.equals(other.id) && name.equals(other.name);
+        return Objects.equals(id, other.id) && Objects.equals(name, other.name);
     }
 
     public Long getId() {
