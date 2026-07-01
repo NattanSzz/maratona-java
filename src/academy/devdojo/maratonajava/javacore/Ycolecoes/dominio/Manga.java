@@ -34,7 +34,7 @@ public class Manga implements Comparable<Manga> {
         return Double.compare(other.value, value) == 0 && id.equals(other.id) && name.equals(other.name);
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
