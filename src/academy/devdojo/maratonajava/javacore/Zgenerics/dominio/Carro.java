@@ -9,7 +9,7 @@ public class Carro {
 
     @Override
     public String toString() {
-        return "Carro\n--> " + this.name;
+        return "Carro\n----> " + this.name;
     }
 
     public String getName() {

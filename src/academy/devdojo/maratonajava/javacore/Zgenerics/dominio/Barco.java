@@ -8,7 +8,7 @@ public class Barco {
     }
 
     public String toString() {
-        return "Barco\n--> " + this.name;
+        return "Barco\n----> " + this.name;
     }
 
     public String getName() {
