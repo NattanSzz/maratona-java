@@ -26,7 +26,7 @@ public class MapTest02 {
 
         Map<Consumidor, List<Manga>> consumidorManga = new HashMap<>();
         consumidorManga.put(consumidor1, List.of(manga1, manga2, manga3));
-        consumidorManga.put(consumidor2, List.of(manga3, manga4));
+        consumidorManga.put(consumidor2, List.of(manga3, manga4, manga5));
 
         for(Map.Entry<Consumidor, List<Manga>> entry : consumidorManga.entrySet()){
             System.out.println(entry.getKey().getName());
