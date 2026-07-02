@@ -1,6 +1,7 @@
 package academy.devdojo.maratonajava.javacore.Ycolecoes.test;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import academy.devdojo.maratonajava.javacore.Ycolecoes.dominio.Consumidor;
@@ -16,11 +17,22 @@ public class MapTest02 {
         Manga manga4 = new Manga(3L, "Pokemon", 11.20);
         Manga manga5 = new Manga(2L, "Dragon ball z", 2.99);
 
-        Map<Consumidor, Manga> consumidorManga = new HashMap<>();
-        consumidorManga.put(consumidor1, manga1);
-        consumidorManga.put(consumidor2, manga4);
-        for(Map.Entry<Consumidor, Manga> entry : consumidorManga.entrySet()){
-            System.out.println(entry.getKey().getName() + " -> " + entry.getValue().getName());
+        // Map<Consumidor, Manga> consumidorManga = new HashMap<>();
+        // consumidorManga.put(consumidor1, manga1);
+        // consumidorManga.put(consumidor2, manga4);
+        // for(Map.Entry<Consumidor, Manga> entry : consumidorManga.entrySet()){
+        //     System.out.println(entry.getKey().getName() + " -> " + entry.getValue().getName());
+        // }
+
+        Map<Consumidor, List<Manga>> consumidorManga = new HashMap<>();
+        consumidorManga.put(consumidor1, List.of(manga1, manga2, manga3));
+        consumidorManga.put(consumidor2, List.of(manga3, manga4));
+
+        for(Map.Entry<Consumidor, List<Manga>> entry : consumidorManga.entrySet()){
+            System.out.println(entry.getKey().getName());
+            for(Manga manga : entry.getValue()){
+                System.out.println("-> " + manga.getName());
+            }
         }
     }
 }
