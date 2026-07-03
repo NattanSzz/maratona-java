@@ -1,6 +1,6 @@
 package academy.devdojo.maratonajava.javacore.ZZAclassesinternas.test;
 
-public class InnerClassesTest01 {
+public class OuterClassesTest01 {
     private String name = "Dean";
 
     class Inner {
@@ -10,6 +10,8 @@ public class InnerClassesTest01 {
     }
 
     public static void main(String[] args) {
-
+        OuterClassesTest01 outerClass = new OuterClassesTest01();
+        OuterClassesTest01.Inner inner = outerClass.new Inner();
+        inner.printOuterClassAttribute();
     }
 }
