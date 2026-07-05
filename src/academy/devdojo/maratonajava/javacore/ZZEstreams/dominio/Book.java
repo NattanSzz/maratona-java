@@ -3,10 +3,17 @@ package academy.devdojo.maratonajava.javacore.ZZEstreams.dominio;
 public class Book {
     private String title;
     private double price;
+    private Category category;
     
     public Book(String title, double price) {
         this.title = title;
         this.price = price;
+    }
+
+    public Book(String title, double price, Category category) {
+        this.title = title;
+        this.price = price;
+        this.category = category;
     }
 
     @Override
@@ -34,11 +41,9 @@ public class Book {
         return true;
     }
 
-
-
     @Override
     public String toString() {
-        return "Book [title=" + title + ", price=" + price + "]";
+        return "Book [title=" + title + ", price=" + price + ", category=" + category + "]";
     }
 
     public String getTitle() {
@@ -57,6 +62,12 @@ public class Book {
         this.price = price;
     }
 
-    
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 
 }
