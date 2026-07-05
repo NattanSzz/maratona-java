@@ -1,6 +1,7 @@
 package academy.devdojo.maratonajava.javacore.ZZEstreams.test;
 
 import java.util.ArrayList;
+import java.util.DoubleSummaryStatistics;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -8,7 +9,7 @@ import java.util.stream.Collectors;
 import academy.devdojo.maratonajava.javacore.ZZEstreams.dominio.Book;
 import academy.devdojo.maratonajava.javacore.ZZEstreams.dominio.Category;
 
-public class StreamTest14 {
+public class StreamTest15 {
     private static List<Book> books = new ArrayList<>(List.of(
         new Book("Pequeno Princpe", 8.99, Category.FANTASY),
         new Book("Dune", 3.99, Category.FANTASY),
@@ -20,7 +21,7 @@ public class StreamTest14 {
         new Book("Peter Pan", 4.00, Category.ROMANCE)));
 
     public static void main(String[] args) {
-        Map<Category, Long> collect = books.stream().collect(Collectors.groupingBy(Book::getCategory, Collectors.counting()));
+        Map<Category, DoubleSummaryStatistics> collect = books.stream().collect(Collectors.groupingBy(Book::getCategory, Collectors.summarizingDouble(Book::getPrice)));
         System.out.println(collect);
     }
     
