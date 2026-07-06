@@ -1,15 +1,7 @@
 package academy.devdojo.maratonajava.javacore.ZZEstreams.test;
 
-import java.util.ArrayList;
-import java.util.DoubleSummaryStatistics;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 import java.util.stream.LongStream;
 import java.util.stream.Stream;
-
-import academy.devdojo.maratonajava.javacore.ZZEstreams.dominio.Book;
-import academy.devdojo.maratonajava.javacore.ZZEstreams.dominio.Category;
 
 public class StreamTest16 {
     public static void main(String[] args) {
