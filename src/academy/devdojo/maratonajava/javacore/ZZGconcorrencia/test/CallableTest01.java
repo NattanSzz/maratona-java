@@ -12,7 +12,7 @@ public class CallableTest01 {
         RandomNumberCallable randomNumberCallable = new RandomNumberCallable();
         ExecutorService executorService = Executors.newFixedThreadPool(2);
         Future<String> future = executorService.submit(randomNumberCallable);
-        String s = future.get();
+        future.get();
         System.out.println("Programa finalizado");
         executorService.shutdown();
     }
