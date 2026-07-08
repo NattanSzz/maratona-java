@@ -4,7 +4,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
-import academy.devdojo.maratonajava.javacore.ZZGconcorrencia.dominio.service.StoreService;
+import academy.devdojo.maratonajava.javacore.ZZGconcorrencia.service.StoreService;
 
 public class CompletableFutureTest01 {
     public static void main(String[] args) {

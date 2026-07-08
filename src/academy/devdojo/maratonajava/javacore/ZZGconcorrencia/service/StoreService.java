@@ -1,4 +1,4 @@
-package academy.devdojo.maratonajava.javacore.ZZGconcorrencia.dominio.service;
+package academy.devdojo.maratonajava.javacore.ZZGconcorrencia.service;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
