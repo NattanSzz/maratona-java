@@ -1,0 +1,15 @@
+package academy.devdojo.maratonajava.javacore.ZZHpadroesdeprojeto.test;
+
+import academy.devdojo.maratonajava.javacore.ZZHpadroesdeprojeto.dominio.Person;
+
+public class BuilderPatternTest01 {
+    public static void main(String[] args) {
+        Person build = new Person.PersonBuilder()
+            .firstName("Willian")
+            .lastName("Suane")
+            .username("devdojo")
+            .email("")
+            .email("willian.suane@devdojo.academy")
+            .build();
+    }
+}
