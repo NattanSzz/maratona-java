@@ -28,6 +28,12 @@ public class Person {
     public String getEmail() {
         return email;
     }
+    
+    @Override
+    public String toString() {
+        return "Person [firstName=" + firstName + ", lastName=" + lastName + ", username=" + username + ", email="
+                + email + "]";
+    }
 
     public static class PersonBuilder {
         private String firstName;

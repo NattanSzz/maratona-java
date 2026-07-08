@@ -11,5 +11,7 @@ public class BuilderPatternTest01 {
             .email("")
             .email("willian.suane@devdojo.academy")
             .build();
+
+        System.out.println(build);
     }
 }
