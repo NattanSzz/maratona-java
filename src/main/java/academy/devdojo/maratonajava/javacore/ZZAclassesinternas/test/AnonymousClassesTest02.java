@@ -19,15 +19,15 @@ public class AnonymousClassesTest02 {
     }
 }
 
-class Animal {
+class Animal2 {
     public void walk() {
-        System.out.println("Animal walking");
+        System.out.println("Animal2 walking");
     }
 }
 
-class Dog extends Animal {
+class Dog2 extends Animal2 {
     @Override
     public void walk() {
-        System.out.println("Dog walking");
+        System.out.println("Dog2 walking");
     }
 }
