@@ -51,7 +51,35 @@ public class ProducerRepository {
 
     public static List<Producer> findAll() {
         log.info("Finding all Producers");
-        String sql = "SELECT id, name FROM book_store.producer;";
+        return findByName("");
+    }
+
+    public static List<Producer> findByName(String name) {
+        log.info("Finding all Producers");
+        String sql = "select * from book_store.producer where name like '%%%s%%';".formatted(name);
+        List<Producer> producers = new ArrayList<>();
+
+        try(Connection conn = ConnectionFactory.getConnection();
+                Statement stmt = conn.createStatement();
+                ResultSet rs = stmt.executeQuery(sql)) {
+            while(rs.next()) {
+                Producer producer = Producer
+                    .builder()
+                    .id(rs.getInt("id"))
+                    .name(rs.getString("name")).build();
+                producers.add(producer);
+            }
+        } catch (SQLException e) {
+            log.error("Error while trying to find producers'");
+            e.printStackTrace();
+        }
+        
+        return producers;
+    }
+
+    public static List<Producer> getProducerMetaData(String name) {
+        log.info("Finding all Producers");
+        String sql = "select * from book_store.producer where name like '%%%s%%';".formatted(name);
         List<Producer> producers = new ArrayList<>();
 
         try(Connection conn = ConnectionFactory.getConnection();
