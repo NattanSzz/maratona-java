@@ -1,7 +1,9 @@
 package academy.devdojo.maratonajava.javacore.ZZIjdbc.test;
 
 import java.sql.SQLException;
+import java.util.List;
 
+import academy.devdojo.maratonajava.javacore.ZZIjdbc.dominio.Producer;
 import academy.devdojo.maratonajava.javacore.ZZIjdbc.service.ProducerService;
 import lombok.extern.log4j.Log4j2;
 
@@ -23,6 +25,14 @@ public class ConnectionFactoryTest01 {
 
         // ProducerService.showProducerMetaData();
 
-        ProducerService.showDriverMetaData();
+        // ProducerService.showDriverMetaData();
+
+        // ProducerService.showTypeScrollWorking();
+
+        // List<Producer> producers = ProducerService.findByNameAndUpdateToUppercase("Deen");
+        // log.info("Producers found '{}'", producers);
+        
+        List<Producer> producers = ProducerService.findByNameAndInsertWhenNotFound("A-1 pictures");
+        log.info("Producers found '{}'", producers);
     }
 }

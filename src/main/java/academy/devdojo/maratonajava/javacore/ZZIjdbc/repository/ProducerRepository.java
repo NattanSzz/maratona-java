@@ -105,7 +105,7 @@ public class ProducerRepository {
 
     public static void showDriverMetaData() {
         log.info("Showing Producers MetaData");
-        
+
         try(Connection conn = ConnectionFactory.getConnection()) {
             DatabaseMetaData dbMetaData = conn.getMetaData();
             if(dbMetaData.supportsResultSetType(ResultSet.TYPE_FORWARD_ONLY)){
@@ -131,5 +131,77 @@ public class ProducerRepository {
             e.printStackTrace();
         }
         
+    }
+
+    public static void showTypeScrollWorking() {
+        String sql = "select * from book_store.producer;";
+
+        try(Connection conn = ConnectionFactory.getConnection();
+                Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+                ResultSet rs = stmt.executeQuery(sql)) {
+            log.info("Last row: '{}'", rs.last());
+            log.info("Number row: '{}'", rs.getRow());
+            log.info(Producer.builder().id(rs.getInt("id")).name(rs.getString("name")).build());
+
+            log.info("First row: '{}'", rs.first());
+            log.info("Number row: '{}'", rs.getRow());
+            log.info(Producer.builder().id(rs.getInt("id")).name(rs.getString("name")).build());
+        } catch (SQLException e) {
+            log.error("Error while trying to find producers'");
+            e.printStackTrace();
+        }
+
+    }
+
+    public static List<Producer> findByNameAndUpdateToUppercase(String name) {
+        log.info("Finding Producers by name");
+        String sql = "select * from book_store.producer where name like '%%%s%%';".formatted(name);
+        List<Producer> producers = new ArrayList<>();
+
+        try(Connection conn = ConnectionFactory.getConnection();
+                Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+                ResultSet rs = stmt.executeQuery(sql)) {
+            while(rs.next()) {
+                rs.updateString("name", rs.getString("name").toUpperCase());
+                rs.updateRow();
+                Producer producer = Producer
+                    .builder()
+                    .id(rs.getInt("id"))
+                    .name(rs.getString("name")).build();
+                producers.add(producer);
+            }
+        } catch (SQLException e) {
+            log.error("Error while trying to find producers'");
+            e.printStackTrace();
+        }
+        
+        return producers;
+    }
+
+    public static List<Producer> findByNameAndInsertWhenNotFound(String name) {
+        log.info("Finding Producers by name");
+        String sql = "select * from book_store.producer where name like '%%%s%%';".formatted(name);
+        List<Producer> producers = new ArrayList<>();
+
+        try(Connection conn = ConnectionFactory.getConnection();
+                Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+                ResultSet rs = stmt.executeQuery(sql)) {
+            if(rs.next()) return producers;
+            rs.moveToInsertRow();
+            rs.updateString("name", name);
+            rs.insertRow();
+            rs.beforeFirst();
+            rs.next();
+            Producer producer = Producer
+                .builder()
+                .id(rs.getInt("id"))
+                .name(rs.getString("name")).build();
+            producers.add(producer);
+        } catch (SQLException e) {
+            log.error("Error while trying to find producers'");
+            e.printStackTrace();
+        }
+        
+        return producers;
     }
 }
