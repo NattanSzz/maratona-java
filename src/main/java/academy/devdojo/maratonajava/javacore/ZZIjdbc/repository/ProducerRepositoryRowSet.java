@@ -1,9 +1,11 @@
 package academy.devdojo.maratonajava.javacore.ZZIjdbc.repository;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.sql.rowset.CachedRowSet;
 import javax.sql.rowset.JdbcRowSet;
 
 import academy.devdojo.maratonajava.javacore.ZZIjdbc.conn.ConnectionFactory;
@@ -48,4 +50,21 @@ public class ProducerRepositoryRowSet {
         }
     }
     
+    public static void updateCachedRowSet(Producer producer) {
+        String sql = "SELECT * FROM producer WHERE (`id` = ?);";
+
+        try(CachedRowSet crs = ConnectionFactory.getCachedRowSet();
+                Connection connection = ConnectionFactory.getConnection()){
+            connection.setAutoCommit(false);
+            crs.setCommand(sql);
+            crs.setInt(1, producer.getId());
+            crs.execute(connection);
+            if(!crs.next()) return;
+            crs.updateString("name", producer.getName());
+            crs.updateRow();
+            crs.acceptChanges();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -10,7 +10,10 @@ public class ConnectionFactoryTest02 {
         // List<Producer> producers = ProducerServiceRowSet.findByNameJdbcRowSet("NHK");
         // log.info("Producers '{}'", producers);
 
+        // Producer producerToUpdate = Producer.builder().id(1).name("madhouse").build();
+        // ProducerServiceRowSet.updateJdbcRowSet(producerToUpdate);
+
         Producer producerToUpdate = Producer.builder().id(1).name("madhouse").build();
-        ProducerServiceRowSet.updateJdbcRowSet(producerToUpdate);
+        ProducerServiceRowSet.updateCachedRowSet(producerToUpdate);
     }
 }
