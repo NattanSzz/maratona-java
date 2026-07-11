@@ -8,6 +8,7 @@ import javax.sql.rowset.JdbcRowSet;
 
 import academy.devdojo.maratonajava.javacore.ZZIjdbc.conn.ConnectionFactory;
 import academy.devdojo.maratonajava.javacore.ZZIjdbc.dominio.Producer;
+import academy.devdojo.maratonajava.javacore.ZZIjdbc.listener.CustomRowSetListener;
 
 public class ProducerRepositoryRowSet {
     public static List<Producer> findByNameJdbcRowSet(String name) {
@@ -32,13 +33,16 @@ public class ProducerRepositoryRowSet {
     }
 
     public static void updateJdbcRowSet(Producer producer) {
-        String sql = "UPDATE `book_store`.`producer` SET `name` = ? WHERE (`id` = ?);";
+        String sql = "SELECT * FROM book_store.producer WHERE (`id` = ?);";
 
         try(JdbcRowSet jrs = ConnectionFactory.getJdbcRowSet()){
+            jrs.addRowSetListener(new CustomRowSetListener());
             jrs.setCommand(sql);
-            jrs.setString(1, producer.getName());
-            jrs.setInt(2, producer.getId());
+            jrs.setInt(1, producer.getId());
             jrs.execute();
+            if(!jrs.next()) return;
+            jrs.updateString("name", producer.getName());
+            jrs.updateRow();
         } catch (SQLException e) {
             e.printStackTrace();
         }
