@@ -40,4 +40,38 @@ public class ProducerRepository {
         ps.setString(1, String.format("%%%s%%", name));
         return ps;
     }
+
+    public static void delete(int id) {
+        try(Connection conn = ConnectionFactory.getConnection();
+                PreparedStatement ps = createPrepaedStatementDelete(conn, id)) {
+            ps.execute();
+            log.info("Deleted producer '{}' from the database", id);
+        } catch (SQLException e) {
+            log.error("Error while trying to delete producer '{}'", id);
+        }
+    }
+
+    private static PreparedStatement createPrepaedStatementDelete(Connection conn, Integer id) throws SQLException {
+        String sql = "DELETE FROM `book_store`.`producer` WHERE (`id` = ?);";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setInt(1, id);
+        return ps;
+    }
+
+    public static void save(Producer producer) {
+        log.info("Saving producer '{}'", producer.getName());
+        try(Connection conn = ConnectionFactory.getConnection();
+                PreparedStatement ps = createPreparedStatementSave(conn, producer)) {
+            ps.execute();
+        }catch(SQLException e) {
+            log.error("Error while trying to save producer", e);
+        }
+    }
+
+    private static PreparedStatement createPreparedStatementSave(Connection conn, Producer producer) throws SQLException {
+        String sql = "INSERT INFO `book_store`.`producer` (`name`) VALUES (?);";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1, producer.getName());
+        return ps;
+    }
 }
