@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import academy.devdojo.maratonajava.javacore.ZZJcrud.conn.ConnectionFactory;
 import academy.devdojo.maratonajava.javacore.ZZJcrud.dominio.Producer;
@@ -41,6 +42,30 @@ public class ProducerRepository {
         return ps;
     }
 
+    public static Optional<Producer> findById(Integer id) {
+        log.info("Finding Producer by Id");
+        try(Connection conn = ConnectionFactory.getConnection();
+                PreparedStatement ps = createPrepaedStatementFindById(conn, id);
+                ResultSet rs = ps.executeQuery()) {
+            if(!rs.next()) return Optional.empty();
+            return Optional.of(Producer
+                .builder()
+                .id(rs.getInt("id"))
+                .name(rs.getString("name"))
+                .build());
+        }catch(SQLException e) {
+            log.error("Error while trying to find all producers", e);
+        }
+        return Optional.empty();
+    }
+
+    private static PreparedStatement createPrepaedStatementFindById(Connection conn, Integer id) throws SQLException {
+        String sql = "SELECT * FROM book_store.producer where id = ?;";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setInt(1, id);
+        return ps;
+    }
+
     public static void delete(int id) {
         try(Connection conn = ConnectionFactory.getConnection();
                 PreparedStatement ps = createPrepaedStatementDelete(conn, id)) {
@@ -72,6 +97,24 @@ public class ProducerRepository {
         String sql = "INSERT INFO `book_store`.`producer` (`name`) VALUES (?);";
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setString(1, producer.getName());
+        return ps;
+    }
+
+    public static void update(Producer producer) {
+        log.info("Updating producer '{}'", producer);
+        try(Connection conn = ConnectionFactory.getConnection();
+                PreparedStatement ps = createPreparedStatementUpdate(conn, producer)){
+            ps.execute();
+        }catch(SQLException e) {
+            log.error("Error while trying to update producer", e);
+        }
+    }
+
+    private static PreparedStatement createPreparedStatementUpdate(Connection conn, Producer producer) throws SQLException {
+        String sql = "UPDATE `anime_store`.`producer` SET `name` = ? WHERE (`id` = ?);";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1, producer.getName());
+        ps.setInt(1, producer.getId());
         return ps;
     }
 }
